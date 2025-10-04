@@ -1,9 +1,11 @@
 const  router = require('express').Router();
-const { login, signup, logout} = require('../controllers/auth.controller');
+const { loginController, signupController, logoutController} = require('../controllers/auth.controller');
+const authMiddleare = require('../middlewares/auth.middleware');
+
+router.post('/signup', signupController);
+router.post('/login', loginController);
+router.post('/logout', authMiddleare, logoutController);
 
 
-router.post('/signup', signup);
 
-
-
-module.exports = router;
+module.exports = router;    
