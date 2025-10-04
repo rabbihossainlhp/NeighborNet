@@ -1,11 +1,11 @@
-
+const authRouter = require('./auth.route');
 
 
 
 const routes = [
     {
         path:'api/auth',
-        handler:
+        handler:authRouter
     }
 ]
 
@@ -18,3 +18,4 @@ const useRoute = (app)=>{
 
 
 module.exports = useRoute;
+
