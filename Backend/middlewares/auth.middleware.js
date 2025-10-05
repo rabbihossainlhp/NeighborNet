@@ -27,4 +27,4 @@ const authMiddleare = async (req,res, next)=>{
     }
 }
 
-module.exports = authMiddleare
+module.exports = authMiddleare;
