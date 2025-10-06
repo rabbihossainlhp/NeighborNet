@@ -11,14 +11,14 @@ import {Loader} from 'lucide-react';
 
 
 function App() {
-  const {authUser,checkAuth,isChekingAuth} = useAuthStore();
+  const {authUser,checkAuth,isCheckingAuth} = useAuthStore();
   
   useEffect(()=>{
     checkAuth();
   },[checkAuth])
   console.log({authUser});
 
-  if(isChekingAuth && !authUser) return (
+  if(isCheckingAuth && !authUser) return (
     <div className="flex items-center justify-center h-screen">
       <Loader className='size-10 animate-spin'/>
     </div>
@@ -31,7 +31,7 @@ function App() {
       
       <Routes>
         <Route  path="/" element={authUser ? <Home/> : <Navigate to='/login' />}/>
-        <Route  path="/signup" element={authUser ? <Navigate to='/'/> : <Signup/>}/>
+        <Route  path="/signup" element={authUser ? <Navigate to='/login'/> : <Signup/>}/>
         <Route  path="/login" element={authUser ? <Navigate to='/'/> : <Login/>} />
         <Route  path="/settings" element={<Settings/>} />
         <Route  path="/profile" element={authUser ? <Profile/> : <Navigate to='/login' />} />
